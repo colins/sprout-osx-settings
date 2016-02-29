@@ -20,7 +20,7 @@ hostnames.each do |hostname|
     # you're logged into the console, but we can't be sure of that.
 
     ["scutil --set ComputerName #{hostname}",
-     "scutil --set LocalHostName #{hostname}",
+     "scutil --set LocalHostName #{hostname.gsub('_','')}",
      "scutil --set HostName #{hostname}",
      "hostname #{hostname}",
      "diskutil rename / #{hostname}" ].each do |host_cmd|
